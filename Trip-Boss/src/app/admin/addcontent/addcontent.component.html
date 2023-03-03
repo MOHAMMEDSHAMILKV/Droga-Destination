@@ -1,0 +1,31 @@
+<app-adminnav></app-adminnav>
+<div class="container" id="form">
+  <div class="mb-3" >
+    <label for="exampleFormControlInput1" class="form-label">Place Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="placename" [(ngModel)]="placename" name="placename">
+  </div>
+  <div class="mb-3">
+    <label for="formFile" class="form-label">Image</label>
+    <input class="form-control" type="file" id="formFile" [(ngModel)]="imageUrl" name="imageUrl">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Details</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="details" name="details"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="formFile" class="form-label">select a field to add content</label>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="field" >
+      <!-- <option selected>select a field to add content</option> -->
+      <option value="Popular Destinations">Popular Destinations</option>
+      <option value="Recent Trips">Recent Trips
+      </option>
+      <option value="Videos">Videos</option>
+    </select>
+  </div>
+  <div id="button" class="text-center">
+    <button type="button" class="btn btn-secondary">Close</button>
+    <button type="button" id="btn-success" class="btn btn-success" (click)="content()">Success</button>
+  </div>
+  
+</div>
+

@@ -1,0 +1,84 @@
+<app-header></app-header>
+<div id="section-1" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="height: 600px; margin-top: 40px;" data-bs-interval="3000">
+        <img src="\assets\Tosh-Feature.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" style="height: 600px; margin-top: 40px;" data-bs-interval="3000">
+        <img src="\assets\Landscape-Wallpaper-4k.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" style="height: 600px; margin-top: 40px;" data-bs-interval="3000">
+        <img src="\assets\wp2037798.webp" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ <!-- <button type="button" class="btn btn-primary">Button</button> -->
+
+
+<div id="section-2" class="section">
+    <div id="section-heading text-center">
+        <h1 class="text-center" >Popular Destination</h1>
+        <p class="text-center">hvshdavsvdflasvdfkvaslkfv</p>
+    </div>
+    <div class="row">
+
+        <div class="card col-md-4" style="width: 18rem; " *ngFor="let l of list">
+            <img src={{l.imageUrl}} class="card-img-top" alt="{{l.placename}}">
+            <div class="card-body">
+                <h3>{{l.placename}}</h3>
+              <p class="card-text">{{l.details}}</p>
+            </div>
+          </div>   
+    </div>
+        
+</div>
+
+<div id="section-3" class="section">
+  <div id="section-heading text-center">
+      <h1 class="text-center" >Videos</h1>
+      <p class="text-center">hvshdavsvdflasvdfkvaslkfv</p>
+  </div>
+  <div class="row">
+
+      <div class="card col-md-4" style="width: 18rem; " *ngFor="let l of videos">
+          <img src={{l.imageUrl}} class="card-img-top" alt="{{l.placename}}">
+          <div class="card-body">
+              <h3>{{l.placename}}</h3>
+            <p class="card-text">{{l.details}}</p>
+          </div>
+        </div>
+
+       
+  </div>
+      
+</div>
+
+<div id="section-4" class="section">
+  <div id="section-heading text-center">
+      <h1 class="text-center" >Recent Trips</h1>
+      <p class="text-center">hvshdavsvdflasvdfkvaslkfv</p>
+  </div>
+  <div class="row">
+
+      <div class="card col-md-4" style="width: 18rem; " *ngFor="let l of recent">
+          <img src={{l.imageUrl}} class="card-img-top" alt="{{l.placename}}">
+          <div class="card-body">
+              <h3>{{l.placename}}</h3>
+            <p class="card-text">{{l.details}}</p>
+          </div>
+        </div>
+
+  </div>
+      
+</div>
+
+
+<app-footer></app-footer>

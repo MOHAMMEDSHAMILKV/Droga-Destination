@@ -1,0 +1,89 @@
+<app-adminnav></app-adminnav>
+
+<div class="container">
+    <h2>Popular Destination</h2>
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Place Name</th>
+            <th scope="col">image</th>
+            <th scope="col">details</th>
+            <th>action</th>
+          </tr>
+          <tr *ngIf="list.length < 1">
+            <td colspan="5">No places added</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let l of list; index as i ">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{l.placename}}</td>
+            <!-- <td>{{l.imageUrl}}</td> -->
+            <td><img src="{{l.imageUrl}}" alt="Image description" style="height: 50px;"></td>
+            <td>{{l.details}}</td>
+            <td><button class="btn" (click)="onDelete(l.placename)"><i class="bi bi-trash"></i></button></td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>
+
+<div class="container">
+  <h2>videos </h2>
+  <table class="table" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Place Name</th>
+          <th scope="col">image</th>
+          <th scope="col">details</th>
+          <th>action</th>
+        </tr>
+        <tr *ngIf="videos.length < 1">
+          <td colspan="5">No places added</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of videos; index as i ">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{l.placename}}</td>
+          <!-- <td>{{l.imageUrl}}</td> -->
+          <td><img src="{{l.imageUrl}}" alt="Image description" style="height: 50px;"></td>
+          <td>{{l.details}}</td>
+          <td><button class="btn" (click)="onDelete(l.placename)"><i class="bi bi-trash"></i></button></td>
+        </tr>
+       
+      </tbody>
+    </table>
+</div>
+
+
+<div class="container" id="RecentTrips">
+  <h2>Recent Trips </h2>
+  <table class="table" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Place Name</th>
+          <th scope="col">image</th>
+          <th scope="col">details</th>
+          <th>action</th>
+        </tr>
+        <tr *ngIf="recent.length < 1">
+          <td colspan="5">No places added</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of recent; index as i ">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{l.placename}}</td>
+          <!-- <td>{{l.imageUrl}}</td> -->
+          <td><img src="{{l.imageUrl}}" alt="Image description" style="height: 50px;"></td>
+          <td>{{l.details}}</td>
+          <td><button class="btn" (click)="onDelete(l.placename)"><i class="bi bi-trash"></i></button></td>
+        </tr>
+       
+      </tbody>
+    </table>
+</div>
