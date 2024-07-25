@@ -6,7 +6,7 @@
   </div>
   <div class="mb-3">
     <label for="formFile" class="form-label">Image</label>
-    <input class="form-control" type="file" id="formFile" [(ngModel)]="imageUrl" name="imageUrl">
+    <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">Details</label>

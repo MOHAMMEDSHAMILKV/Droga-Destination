@@ -11,70 +11,77 @@ export class HeaderComponent {
 
 
 
-  constructor(private Rt:Router,private ds:AuthService){}
-  navigateTo(route:any){
+  constructor(private Rt: Router, private ds: AuthService) { }
+  navigateTo(route: any) {
     this.Rt.navigate([`/${route}`])
   }
 
-  name:any
-  gender:any
-  phoneNo:any
-  username:any
-  password:any
-login(){
-    
-  var username:any=this.username
-  var password:any=this.password
+  name: any
+  gender: any
+  phoneNo: any
+  username: any
+  password: any
+  userDetails:any
 
-  
-  
-  this.ds.login(username,password)
-  .subscribe((rslt:any)=>{
-   
-    if(rslt.data.admin){
-      alert(rslt.msg)
-      this.Rt.navigateByUrl('admin')
-    }
-    else{
-      alert(rslt.msg)
-      this.Rt.navigateByUrl('')
-    }
+  ngOnInit(): void {
+    let data: any = localStorage.getItem('userDetails');
+    this.userDetails = JSON.parse(data)
+  }
 
-  },(rslt:any)=>{
-    
-    alert(rslt.error.msg)
-  })
-}
+  login() {
 
-register(){
-  var name:any=this.name
-  var gender:any=this.gender
-  var phoneNo:any=this.phoneNo
-  var username:any=this.username
-  var password:any=this.password
+    var username: any = this.username
+    var password: any = this.password
 
-  this.ds.register(name,gender,phoneNo,username,password)
-  .subscribe((rslt:any)=>{
 
-   
-    
-    if(rslt){  
-      
-      alert(rslt.message)
-      this.Rt.navigateByUrl("")
-        }else{
-          alert("invalid form")
-         
+
+    this.ds.login(username, password).subscribe((rslt: any) => {
+      localStorage.setItem('userDetails', JSON.stringify(rslt.data));
+        if (rslt.data.admin === true) {
+
+          alert(rslt.msg)
+          this.Rt.navigateByUrl('admin')
         }
-      
+        else {
+          alert(rslt.msg)
+          this.Rt.navigateByUrl('')
+        }
 
-  
-    },(rslt)=>{
-      console.log("test:",rslt.error.message)
-      alert(rslt.error.message)
-    })
+      }, (rslt: any) => {
 
-  
+        alert(rslt.error.msg)
+      })
+  }
+
+  register() {
+    var name: any = this.name
+    var gender: any = this.gender
+    var phoneNo: any = this.phoneNo
+    var username: any = this.username
+    var password: any = this.password
+
+    this.ds.register(name, gender, phoneNo, username, password)
+      .subscribe((rslt: any) => {
+
+
+
+        if (rslt) {
+
+          alert(rslt.message)
+          this.Rt.navigateByUrl("")
+        } else {
+          alert("invalid form")
+
+        }
+
+
+
+      }, (rslt) => {
+        console.log("test:", rslt.error.message)
+        alert(rslt.error.message)
+      })
+
+
 
   }
 }

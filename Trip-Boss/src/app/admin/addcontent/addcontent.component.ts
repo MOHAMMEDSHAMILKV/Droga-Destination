@@ -21,7 +21,19 @@ imageUrl:any
 details:any
 field:any
 
+onFileSelected(event: any): void {
+  let data = event.target.files[0];
+  console.log(data);
+  
+  const formData = new FormData();
+  this.imageUrl =  formData.append('image', data, data.name);
+  console.log(this.imageUrl,"img");
+  
+
+}
+
 content(){
+  const formData = new FormData();
   var placename:any=this.placename
   var imageUrl:any=this.imageUrl
   var details:any=this.details
